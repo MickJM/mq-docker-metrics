@@ -1,0 +1,25 @@
+set HOST=172.29.181.113
+set QMGR=TSTQPD01
+set CHANNEL=MQ.MONITOR.SVRCONN
+set PORT=1414
+set USERID=MQMon01
+set PASSWORD=Passw0rd
+set IIBBROKER=TSTIPD01
+set IIBSTATUSQUEUE=IIB.STATS
+
+docker build --tag mq-metrics:01 .
+
+
+docker run -d -e HOST=172.29.181.113 -e QMGR=TSTQPD01 -e CHANNEL=MQ.MONITOR.SVRCONN -e PORT=1414 -e USERID=MQMon01 -e PASSWORD=Passw0rd -p 8082:8082 --name=mq-mon01 mq-metrics:01
+
+
+channelStatus{channelType="ServerConn",channelName="MQ.MONITOR.SVRCONN"}
+
+RUN apt-get update -y \
+  && apt-get install -y --no-install-recommends \
+    bash \
+    bc \
+    rpm  \
+    tar  \
+    util-linux \
+    default-jre
