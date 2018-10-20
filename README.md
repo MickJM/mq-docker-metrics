@@ -1,3 +1,3 @@
 # MQ Metrics
 
-Docker scripts for building MQ Metrics Spring Boot API.
+Docker scripts for building MQ Metrics Spring Boot API
