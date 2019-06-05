@@ -1,10 +1,13 @@
 #
 FROM alpine:3.8
 #
-COPY mq-metrics-0.0.1-1.jar /usr/local/bin/
+COPY mq-metrics-0.0.1-SNAPSHOT.jar /usr/local/bin/
+COPY qmap01jks.jks /usr/local/bin/
+COPY application-dev.yaml /
 #
 RUN ls -lrt /usr/local/bin/
-RUN ip addr show eth0
-RUN route
+RUN ls -lrt /
+#RUN ip addr show eth0
+#RUN route
 #
-CMD ["java","-jar","/usr/local/bin/mq-metrics-0.0.1-1.jar"]
+CMD ["java","-jar","/usr/local/bin/mq-metrics-0.0.1-SNAPSHOT.jar"]
