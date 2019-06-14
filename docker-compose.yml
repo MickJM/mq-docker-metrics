@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mq-metrics:
+    image: mq-metrics:01
+    container_name: mq-metrics01
+    ports:
+      - "8082:8082"
+    environment:
+      spring.profiles.active: dev
+      ibm.mq.connName: 169.254.9.188(1442)
+      ibm.mq.queueManager: QMAP01
+      
