@@ -1,23 +1,20 @@
 application:
   debug: false
-  save1:
-    metrics1:
-      filename1: /usr/local/bin/currentMetrics.json
-    summary1:
-      stats1: 3
-    required1: true
+  save:
+    metrics:
+      filename: /usr/local/bin/currentMetrics.json
+    summary:
+      stats: 3
+    required: true
 ibm:
   mq:
-    queueManager: QMAP01
-    channel1: ADMIN.TLS.SVRCONN
-    channel: MQ.MONITOR.SVRCONN
-    connName: 169.254.9.188(1442)
+    queueManager: TSTQPD01
+    channel: MQ.MONITOR.SSL
+    connName: 169.254.9.188(1414)
     sslCipherSpec: TLS_RSA_WITH_AES_256_CBC_SHA256
-    useSSL: false
-    user: MQMon02
-    password: Passw0rd
-    event:
-      delayInMilliSeconds: 20000
+    useSSL: true
+    user: 
+    password: 
     objects:
       queues:
         include: "*"
@@ -30,11 +27,13 @@ ibm:
         exclude: SYSTEM.
         types:
           include: TCP
-          exclude: "*"
+          exclude: "*" 
+    event:
+      delayInMilliSeconds: 10000      
     security:
-      truststore: /config/qmap01jks.jks
+      truststore: /config/tstqpd01jks.jks
       truststore-password: Passw0rd
-      keystore: /config/qmap01jks.jks
+      keystore: /config/tstqpd01jks.jks
       keystore-password: Passw0rd
 management:
   endpoints:
